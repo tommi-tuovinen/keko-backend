@@ -1,4 +1,4 @@
-# keko-backend
+# Keko API (WIP)
 
 **What?** a Todo-list app done as a learning project.
 
@@ -6,3 +6,4 @@
 
 ## Requirements
 - .NET 7.0 SDK
+- SQL Server database
