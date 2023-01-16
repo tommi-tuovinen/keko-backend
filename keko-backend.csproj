@@ -4,11 +4,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>keko_backend</RootNamespace>
+    <UserSecretsId>f9e19c7d-284f-4bb8-97dc-d2a326146b70</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2"/>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2"/>
   </ItemGroup>
 </Project>
