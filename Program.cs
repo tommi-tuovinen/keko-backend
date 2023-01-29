@@ -32,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/tasks", async (KekoDbContext context) => {
+    return await context.Tasks.ToListAsync();
+});
 
 app.Run();
