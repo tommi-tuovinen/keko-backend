@@ -48,4 +48,21 @@ app.MapPost("/tasks", async (KekoDbContext context, TaskEntity task) =>
     return Results.Created($"/tasks/{task.Id}", task);
 });
 
+app.MapPut("/tasks/{id}", async (KekoDbContext context, TaskEntity task, int id) => {
+    var record = await context.Tasks.FindAsync(id);
+    if (record == null) return Results.NotFound();
+
+    context.Update(task);
+    return Results.NoContent();
+});
+
+app.MapDelete("/tasks/{id}", async (KekoDbContext context, int id) => {
+    var record = await context.Tasks.FindAsync(id);
+    if (record == null) return Results.NotFound();
+
+    context.Remove(record);
+    await context.SaveChangesAsync();
+    return Results.NoContent();
+});
+
 app.Run();
