@@ -36,4 +36,16 @@ app.MapGet("/tasks", async (KekoDbContext context) => {
     return await context.Tasks.ToListAsync();
 });
 
+app.MapGet("/tasks/{id}", async (KekoDbContext context, int id) => {
+    return await context.Tasks.FindAsync(id) is TaskEntity task ? Results.Ok(task) : Results.NotFound();
+});
+
+app.MapPost("/tasks", async (KekoDbContext context, TaskEntity task) =>
+{
+    await context.AddAsync(task);
+    await context.SaveChangesAsync();
+
+    return Results.Created($"/tasks/{task.Id}", task);
+});
+
 app.Run();
